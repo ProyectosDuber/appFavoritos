@@ -12,7 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <div>
-            <form action="../Controlador/controladorDeUsuario.php?action=buscar" method="" id="login">
+            <form action="../Controlador/controladorDeUsuario.php?action=buscar" method="POST" id="login">
                 <input type="text" name="username" id="username" placeholder="Username" /><br>
                 <input type="password" name="password" id="password" placeholder="Password" /><br><br>
                 <input type="submit" name="iniciar" id="iniciar" value="Iniciar Sesion"/>

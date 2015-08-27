@@ -1,5 +1,5 @@
 <?php
-require_once './db_abstract_class.php';
+
 class clUsuario extends db_abstract_class {
     
     private $idUsuario;
@@ -83,7 +83,9 @@ class clUsuario extends db_abstract_class {
 
     public static function buscar($query,$parametros = array()) {
         $usuario = new clUsuario();
-        $array = $usuario->getRow($query, $parametros);
+       
+    $array = $usuario->getRow($query, $parametros);
+       
         foreach ($array as $column=>$valor){
             $usuario->$column = $valor;
         }

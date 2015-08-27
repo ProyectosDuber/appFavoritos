@@ -1,6 +1,6 @@
 <?php
-
-require_once (__DIR__.'../modelos/clPersona.php');
+require_once '../Modelo/db_abstract_class.php';
+require_once ('../Modelo/clUsuario.php');
 
 if(!empty($_GET['action'])){
 	usuarios_controller::main($_GET['action']);
@@ -79,17 +79,20 @@ class usuarios_controller{
 
 	public static function buscar (){
 		try {
-                   $$arrayDeUsuario =array();
+                   $arrayDeUsuario =array();
                    $arrayDeUsuario['username'] = $_POST['username'];
                    $arrayDeUsuario['password'] = $_POST['password'];
-                   $usario = clUsuario::buscar($query, $arrayDeUsuario);
+                     echo $arrayDeUsuario['username']." ".$arrayDeUsuario['password'];
                    
-                  
-                   header("Location: ../Vista/login.php?respuesta=correcto");
+                   $usario = clUsuario::buscar("SELECT * FROM Usuarios where username=? and password=?", $arrayDeUsuario);
+                   
+                 
+//                   header("Location: ../Vista/favoritos.php?respuesta=correcto");
                
                     
 		} catch (Exception $e) {
-			header("Location: ../Vista/favoritos.php?respuesta=error");
+                    echo 'error';
+//			header("Location: ../Vista/favoritos.php?respuesta=error");
 		}
 	}
 	

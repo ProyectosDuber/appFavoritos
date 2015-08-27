@@ -38,8 +38,13 @@
         //$getrow = $database->getRow("SELECT email, username FROM users WHERE username =?", array("yusaf"));
         public function getRow($query, $params=array()){
             try{ 
+          
                 $stmt = $this->datab->prepare($query); 
+                var_dump($stmt);
+                echo "<br/>";
+                var_dump($params);
                 $stmt->execute($params);
+              
                 return $stmt->fetch();  
             }catch(PDOException $e){
                 throw new Exception($e->getMessage());
